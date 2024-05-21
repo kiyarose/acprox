@@ -32,8 +32,8 @@ var tabPresets = {
         icon: 'https://ssl.gstatic.com/classroom/ic_product_classroom_32.png'
     },
     default: {
-        name: 'Art Class',
-        icon: '/assets/images/icon.png'
+        name: 'SLA',
+        icon: 'https://status.sillylittle.tech/assets/status_pages_v2/favicons/maintenance-ede24b7d5f20832cad20ad3745dac7afe16404eee1ad021db9c1585d7cd60815.png'
     }
 }
 
