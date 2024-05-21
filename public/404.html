@@ -1,1 +1,40 @@
-hmmm
+<title>SLF - 404</title>
+<div class=wrapper><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://www.sillylittle.tech/style.css">
+<body class=wrapper>
+  <h1 id="word">404</h1>
+  <img id="image" alt="A random image" />
+  <h2>
+    <p id=random-word>You seem to be lost</p>
+    <center><hr class="divider"><center>
+
+    <a href="/">Home</a>
+  </h2>
+  <script>
+    // Get a random image from the Lorem Picsum API
+    var picsum_url = "https://picsum.photos/300";
+    // Set the image source as the url
+    $("#image").attr("src", picsum_url);
+
+    // (Optional) Remove interval-based animation (if present in star.js)
+  </script>
+  <p style="font-style:italic;">Contact: </p><a style="font-style:italic;" href="mailto:technical@sillylittle.tech">technical@sillylittle.tech</a>
+  </div>
+
+</body>
+  <script>
+    const wordElement = document.getElementById('random-word');
+
+    async function fetchRandomWord() {
+      try {
+        const response = await fetch('https://random-word-api.herokuapp.com/word');
+        const data = await response.json();
+        wordElement.textContent = data;
+      } catch (error) {
+        console.error('Error fetching word:', error);
+        wordElement.textContent = 'Error fetching word.';
+      }
+    }
+
+    fetchRandomWord();
+  </script>
