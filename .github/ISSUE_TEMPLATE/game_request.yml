@@ -1,0 +1,19 @@
+name: Game request
+description: Request a game to be added to Art Class (can also be used for apps)
+assignees:
+  - proudparrot2
+body:
+  - type: input
+    id: game
+    attributes:
+      label: Game name
+      placeholder: Flappy Bird
+    validations:
+      required: true
+  - type: input
+    id: is-it-elsewhere
+    attributes:
+      label: Is this game on any other game websites?
+      description: If so, please put a link to it.
+    validations:
+      required: false
