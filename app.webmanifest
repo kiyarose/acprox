@@ -1,0 +1,26 @@
+{
+  "name": "Silly Little App",
+  "short_name": "SLA",
+  "theme_color": "red",
+  "background_color": "silver",
+  "start_url": "./",
+  "id": "sla",
+  "display": "standalone",
+  "scope": "./",
+  "icons": [
+     {
+        "src": "https://status.sillylittle.tech/assets/status_pages_v2/favicons/maintenance-ede24b7d5f20832cad20ad3745dac7afe16404eee1ad021db9c1585d7cd60815.png",
+        "type": "image/png",
+        "sizes": "512x512"
+     }
+   ],
+   "description": "Web Proxy for Silly little files",
+   "categories": ["games", "proxy"],
+   "screenshots": [
+     {
+        "src": "https://sillylittle.tech/discussions/google_screen_recording_2024-05-08T04-12_14.958Z.webm",
+        "type": "video/webm",
+        "sizes": "512x512"
+     }
+   ]
+}
