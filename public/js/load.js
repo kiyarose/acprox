@@ -14,7 +14,7 @@ if (params.get("game")) {
 
     apps.forEach(app => {
         if (app.id != params.get("app")) return
-        document.title = `${app.title} | Art Class`
+        document.title = `${app.title} | SLA`
         document.querySelector("#gameImage").src = app.image
         document.querySelector("#gameTitle").innerHTML = app.title
         if (app.description) document.querySelector("#gameDescription").innerHTML = app.description
