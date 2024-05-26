@@ -55,13 +55,13 @@ document.getElementById("result").value = "https://go.sillylittle.tech/service/"
 
 function decode() {
   var encodedString = document.getElementById("service").value;
-  
+
   // Remove the prefix if it exists
   const prefix = "https://go.sillylittle.tech/service/";
   if (encodedString.startsWith(prefix)) {
     encodedString = encodedString.slice(prefix.length);
   }
-  
+
   const decodedArray = encodedString.split("").map((char, ind) => {
     if (ind % 2 === 1) {
       // Reverse the XOR operation
