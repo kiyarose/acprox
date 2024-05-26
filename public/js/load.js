@@ -2,12 +2,13 @@ const params = new URLSearchParams(window.location.search)
 if (params.get("game")) {
     games.forEach(async game => {
         if (game.id != params.get("game")) return
-        document.title = `${game.title} | Art Class`
+        document.title = `${game.title} | SLA`
         document.querySelector("#gameImage").src = game.image
         document.querySelector("#gameTitle").innerHTML = game.title
         if (game.description) document.querySelector("#gameDescription").innerHTML = game.description
-        document.querySelector("#frame").src = __uv$config.prefix + __uv$config.encodeUrl(game.url)
-        document.querySelector("#outlink").href = document.querySelector("#frame").src
+        document.querySelector("#frame").src = __uv$config.prefix + __uv$config.encodeUrl(game.url) // Set frame data to UV prox
+        document.querySelector("#outlink").href = document.querySelector("#frame").src // Fallback outlink button
+        location.replace(document.querySelector("#frame".src)) // Go to the UV prox ~!
 
 
     })
