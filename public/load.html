@@ -32,10 +32,12 @@
       <div class="navitem"><a href="/apps.html">Apps</a></div>
       <div class="navitem"><a href="/emulator.html">Emulator</a></div>
       <div class="navitem"><a href="/search.html">Search</a></div>
-      <div class="navitem"><a selected href="/nowhere" id="outlink">↗️</a></div>
+      <div class="navitem"><a selected href="/nowhere"  onclick="outlinkme()" id="outlink">↗️</a></div>
       <script>
+       function outlinkme() { 
        document.getElementById("outlink").href = document.getElementById("frame").src;
        console.log("Outlink injected as: " + document.getElementById("frame").src);
+       };
       </script>
     </div>
   </nav>
