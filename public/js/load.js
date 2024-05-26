@@ -7,6 +7,7 @@ if (params.get("game")) {
         document.querySelector("#gameTitle").innerHTML = game.title
         if (game.description) document.querySelector("#gameDescription").innerHTML = game.description
         document.querySelector("#frame").src = __uv$config.prefix + __uv$config.encodeUrl(game.url)
+        document.querySelector("#outlink").href = document.querySelector("#frame").src
 
 
     })
