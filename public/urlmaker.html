@@ -32,22 +32,31 @@
     <div class="navitems">
       <div class="navitem"><a href="/">🏡Home</a></div>
       <div class="navitem"><a href="/apps.html">🛂Apps</a></div>
-      <div class="navitem"><a selected href="/search.html">🔎Search</a></div>
+      <div class="navitem"><a href="/search.html">🔎Search</a></div>
       <div class="navitem"><a href="/emulator.html">🕹️Emulator</a></div>
     </div>
   </nav>
 
   <div class="center-container">
     <h1>URL Maker</h1>
-   <textarea id="worker" placeholder="URL" value="https://sillylittle.tech" rows='2' cols='22'></textarea>
-<textarea id="result" disabled=true placeholder="Results go here" rows='2' cols='22'></textarea>
-<button onclick="run()">Make em'</button><br>
-<textarea id="service" placeholder="URL" value="hvtrs8/-sklnynivtne,tgcj" rows='2' cols='22'></textarea>
-<textarea id="decoder" disabled=true placeholder="Decode Operation" rows='2' cols='22'></textarea>
-<button onclick="decode()">Decode</button>
+   <textarea id="worker" placeholder="URL (in https:// format)" " rows='2' cols='22'></textarea>
+<textarea id="result" disabled=true placeholder="Encoded URL" rows='2' cols='22'></textarea>
+<button onclick="run()">Encode em'</button><br>
+<textarea id="service" placeholder="Encoded URL" value="hvtrs8/-sklnynivtne,tgcj" rows='2' cols='22'></textarea>
+<textarea id="decoder" disabled=true placeholder="Decoded URL" rows='2' cols='22'></textarea>
+<button onclick="decode()">Decode em'</button>
 <script>
 function run() {
 var targetURL = document.getElementById("worker").value
+const HTTPSecurehead = "https://"
+const HTTPHead = "http://"
+if (targetURL.startsWith(!HTTPSecurehead)) {
+      var targetURL = "https://" + targetURL
+      return targetURL
+} else if (targetURL.startsWith(!HTTPHead)) {
+      var targetURL = "https://" + targetURL
+      return targetURL
+}
 document.getElementById("result").value = "https://go.sillylittle.tech/service/" + targetURL.toString().split("").map((char, ind) => (ind %2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char)).join("")
 
 
