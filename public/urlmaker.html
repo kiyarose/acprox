@@ -48,6 +48,7 @@
 <script>
 function run() {
 var targetURL = document.getElementById("worker").value
+/*
 const HTTPSecurehead = "https://"
 const HTTPHead = "http://"
 if (targetURL.startsWith(!HTTPSecurehead)) {
@@ -57,6 +58,7 @@ if (targetURL.startsWith(!HTTPSecurehead)) {
       var targetURL = "https://" + targetURL
       return targetURL
 }
+*/
 document.getElementById("result").value = "https://go.sillylittle.tech/service/" + targetURL.toString().split("").map((char, ind) => (ind %2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char)).join("")
 
 
