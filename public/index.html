@@ -27,14 +27,14 @@
   </script>
 </head>
 
-<body theme="main">
+<body theme="main" onload="headlinks()">
   <nav>
 
     <p id="time"></p>
 
     <div class="navitems">
-      <div class="navitem"><a href="https://sillylittle.tech">SLF</a></div>
-      <div class="navitem"><a href="https://status.sillylittle.tech">🔥Status</a></div>
+      <div class="navitem" id="homelink"><a href="https://sillylittle.tech">SLF</a></div>
+      <div class="navitem" id="statuslink"><a href="https://status.sillylittle.tech">🔥Status</a></div>
       <div class="navitem"><a selected href="/">🏡Home</a></div>
       <div class="navitem"><a href="/apps.html">🛂Apps</a></div>
       <div class="navitem"><a href="/search.html">🔎Search</a></div>
@@ -59,6 +59,14 @@
 </body>
 
 <script>
+  function headlinks() {
+        var domain = document.domain
+        const parts = domain.split('.');
+        const home = parts.slice(-2).join('.'); // Take the last two parts and join them with a dot
+        document.getElementById("homelink").href = "https://" + home
+        document.getElementById("statuslink").href = "https://status." + home
+
+  }
   fetch('./assets/data/splash.json')
     .then((res) => res.json())
     .then((data) => {
