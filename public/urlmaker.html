@@ -59,7 +59,8 @@ if (targetURL.startsWith(!HTTPSecurehead)) {
       return targetURL
 }
 */
-document.getElementById("result").value = "https://go.sillylittle.tech/service/" + targetURL.toString().split("").map((char, ind) => (ind %2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char)).join("")
+var domain = document.domain
+document.getElementById("result").value =  domain + "/service/" + targetURL.toString().split("").map((char, ind) => (ind %2 ? String.fromCharCode(char.charCodeAt() ^ 2) : char)).join("")
 
 
 }
@@ -68,7 +69,7 @@ function decode() {
   var encodedString = document.getElementById("service").value;
 
   // Remove the prefix if it exists
-  const prefix = "https://go.sillylittle.tech/service/";
+  const prefix = `${document.domain}/service/`;
   if (encodedString.startsWith(prefix)) {
     encodedString = encodedString.slice(prefix.length);
   }
