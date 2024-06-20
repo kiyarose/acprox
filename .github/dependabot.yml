@@ -1,7 +1,7 @@
 version: 2
 updates:
   # Maintain dependencies for JavaScript files (vulnerability checks)
-  - package-ecosystem: javascript
+  - package-ecosystem: npm
     directory: "/"  # Analyzes all JavaScript files in the root and subdirectories
     schedule:
       interval: weekly  # Adjust schedule as needed
