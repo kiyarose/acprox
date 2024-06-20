@@ -1,0 +1,58 @@
+name: Create Issue and Link to PR
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  create-and-link-issue:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Get PR Title, URL, and Number
+        id: pr_info
+        run: |
+          echo "PR Title: ${{ github.event.pull_request.title }}"
+          echo "PR URL: ${{ github.event.pull_request.html_url }}"
+          echo "PR Number: ${{ github.event.number }}"
+
+      - name: Create Issue in SillyLittleFiles
+        uses: octokit/rest@v18
+        with:
+          token: ${{ secrets.MAIN_PAT }}
+          rest-method: issues
+          rest-uri: /repos/dswan36/SillyLittleFiles/issues
+          body: |
+            A new pull request has been opened in ${{ repository }}.
+            **PR Title:** ${{ steps.pr_info.outputs.PR_Title }}
+            **PR URL:** ${{ steps.pr_info.outputs.PR_URL }}
+          owner: dswan36
+          repo: SillyLittleFiles
+      - name: Get Newly Created Issue Number
+        id: new_issue_number
+        uses: octokit/rest@v18
+        with:
+          token: ${{ secrets.MAIN_PAT }}
+          rest-method: issues
+          rest-uri: /repos/{owner}/{repo}/issues?state=open"
+          owner: dswan36
+          repo: SillyLittleFiles
+          output: issue_number
+
+      - name: Add Link to PR Body
+        uses: octokit/rest@v18
+        with:
+          token: ${{ secrets.MAIN_PAT }}
+          rest-method: issues.update
+          rest-uri: /repos/{owner}/{repo}/issues/{issue_number}"
+          owner: dswan36
+          repo: SillyLittleFiles
+          issue_number: ${{ steps.new_issue_number.outputs.issue_number[0].number }}
+          body: |
+            ${{ steps.pr_info.outputs.body }}
+
+            **Linked Pull Request:** ${{ steps.pr_info.outputs.PR_URL }}
+  
+env:
+  MAIN_PAT: ${{ secrets.MAIN_PAT }}
