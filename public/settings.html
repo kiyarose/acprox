@@ -22,7 +22,7 @@
       <div class="navitems">
       <div class="navitem"><a href="/">🏡Home</a></div>
       <div class="navitem"><a href="/apps.html">🛂Apps</a></div>
-      <div class="navitem"><a href="/search.html">🔎Search</a></div>
+      <div class="navitem"><a href="/search.html">🔎Browse</a></div>
       <div class="navitem"><a href="/emulator.html">🕹️Emulator</a></div>
       </div>
     </nav>
@@ -37,7 +37,7 @@
       <button onclick="setTab()" class="secondary">Set tab icon</button> <br />
 
       <button class="secondary" onclick="setTabPreset('default')">
-        <img src="/assets/images/icon.png" />
+        <img src="https://status.sillylittle.tech/assets/status_pages_v2/favicons/operational-4a98629aac4c4be550d1c9eebbdade51ed628b4b9841ad08ffc8e326477448d7.png" />
       </button>
       <button class="secondary" onclick="setTabPreset('google')">
         <img
@@ -64,18 +64,18 @@
 
       <h2>Themes</h2>
       <select id="theme-select">
-        <option value="main">Default</option>
-        <option value="lgbtq">LGBTQIA+</option>
-        <option value="forest">Forest</option>
-        <option value="ocean">Ocean</option>
-        <option value="amoled">AMOLED</option>
-        <option value="white">MY EYES</option>
-        <option value="sunset">Sunset</option>
-        <option value="flash">Flash Bang</option>
-        <option value="matrix">Matrix</option>
-        <option value="beach">Beach</option>
-        <option value="murica">Murica'</option>
-        <option value="modern">Modern</option>
+        <option value="main">Modern (Default)</option>
+        <option value="lgbtq">Plain</option>
+        <option value="forest">Slate</option>
+        <option value="ocean">Bluely</option>
+        <option value="amoled">Pitch</option>
+        <option value="white">Pure</option>
+        <option value="sunset">Creme</option>
+<!--        <option value="flash">Flash Bang</option> -->
+        <option value="matrix">Drain</option>
+        <option value="beach">Peachy</option>
+        <option value="murica">Fade'</option>
+        <option value="modern">Cor(e)p</option>
 
         <!-- add more options for other themes -->
       </select>
@@ -84,9 +84,7 @@
 
       <h2>Panic Key</h2>
       <h4>
-        WARNING: Panic keys trigger whenever you click that key whenever you
-        click it, including typing on this page, so set it to a key you don't
-        click often.
+        WARNING: Panic keys will take you to the designated URL when the selected key is pressed, don't choose a key that you will need. When the panic key is pressed unsaved progress may be lost.
       </h4>
       <input type="text" id="panickey" placeholder="Panic key" />
       <button onclick="setPanicKey()" class="secondary">Set panic key</button>
