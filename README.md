@@ -1,6 +1,6 @@
 # ACPROX
 
-<img align="left" src="https://github.com/dswan36/acprox/blob/newlogo/public/assets/acprox.png" height="200" width="200" alt="badge"/>
+<img align="left" src="https://github.com/dswan36/acprox/blob/main/public/assets/acprox.png" height="200" width="200" alt="badge"/>
 
 [SLF](https://github.com/dswan36/SillyLittleFiles) Proxy tool.\
 <sub>Powered by [<img width=18 src="https://vercel.com/favicon.ico"></img>](https://vercel.app)</sub>
