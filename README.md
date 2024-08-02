@@ -1,4 +1,5 @@
 # ACPROX
+
 <img align="left" src="https://go.sillylittle.tech/assets/acprox.png" height="200" width="200" alt="badge"/>
 
 [SLF](https://github.com/dswan36/SillyLittleFiles) Proxy tool.\
@@ -8,6 +9,7 @@
 [Self Hosting](https://docs.sillylittle.tech) \
 Also check out [EZPROX](https://github.com/dswan36/ezprox) \
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/project?template=https://github.com/dswan36/acprox)
+
 <hr>
 On April 4th 2025 this project will be depreciated.
 See https://github.com/dswan36/SillyLittleFiles/discussions/267 for more info!
