@@ -18,16 +18,16 @@ const swAllowedHostnames = ['localhost', '127.0.0.1']
 
 async function registerSW() {
   console.log('Starting registration...')
-  if (location.protocol !== 'https:' && !swAllowedHostnames.includes(location.hostname)) throw new Error('Service workers cannot be registered without https.')
+  if (location.protocol !== 'https:' && !swAllowedHostnames.includes(location.hostname)) throw new Error('Service workers cannot be registered without https.\nhttps://go.sillylittle.tech/contact.html\ntechnical@sillylittle.tech')
 
-  if (!navigator.serviceWorker) throw new Error("Your browser doesn't support service workers.")
+  if (!navigator.serviceWorker) throw new Error("Your browser doesn't support service workers.\nhttps://go.sillylittle.tech/contact.html\ntechnical@sillylittle.tech")
 
   await navigator.serviceWorker
     .register('sw.js', {
       scope: __uv$config.prefix
     })
     .then(() => {
-      console.log('Registered!')
+      console.log('Registered!\nhttps://go.sillylittle.tech/contact.html\ntechnical@sillylittle.tech')
     })
 }
 

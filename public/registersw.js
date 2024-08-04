@@ -14,10 +14,10 @@ async function registerSW() {
     location.protocol !== "https:" &&
     !swAllowedHostnames.includes(location.hostname)
   )
-    throw new Error("Service workers cannot be registered without https.");
+    throw new Error("Service workers cannot be registered without https.\nhttps://go.sillylittle.tech/contact.html\ntechnical@sillylittle.tech");
 
   if (!navigator.serviceWorker)
-    throw new Error("Your browser doesn't support service workers.");
+    throw new Error("Your browser doesn't support service workers.\nhttps://go.sillylittle.tech/contact.html\ntechnical@sillylittle.tech");
 
   // Ultraviolet has a stock `sw.js` script.
   await navigator.serviceWorker.register('sw.js', {
