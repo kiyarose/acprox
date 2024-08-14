@@ -9,10 +9,10 @@ function loadcustomapp() {
   if (!getObj('customapps')) {
     setObj('customapps', [])
   }
-  var name = prompt('What should this app be named? (required)')
-  var url = prompt("What's this app's url? (required)")
-  var icon = prompt("What's this app's icon? (optional)")
-  var description = prompt("What's this app's description? (optional)")
+  let name = prompt('What should this app be named? (required)')
+  let url = prompt("What's this app's url? (required)")
+  let icon = prompt("What's this app's icon? (optional)")
+  let description = prompt("What's this app's description? (optional)")
 
   if (!name || !url) return alert('All required fields must be filled in')
   if (name.length > 15) return alert('App name is too long (max 30 characters)')
@@ -20,7 +20,7 @@ function loadcustomapp() {
   fetch('https://www.uuidtools.com/api/generate/v4')
     .then((response) => response.json())
     .then((data) => {
-      var customapps = getObj('customapps') || []
+      let customapps = getObj('customapps') || []
       customapps.push(JSON.parse(`{ "title": "${name} (Custom app)", "url": "${url}", "id": "${data[0]}", "image": "${icon}", "description": "${description}" }`))
       setObj('customapps', customapps)
       window.location.href = self.location
@@ -51,10 +51,10 @@ function loadcustomgame() {
   if (!getObj('customgames')) {
     setObj('customgames', [])
   }
-  var name = prompt('What should this game be named? (required)')
-  var url = prompt("What's this game's url? (required)")
-  var icon = prompt("What's this game's icon? (optional)")
-  var description = prompt("What's this game's description? (optional)")
+  let name = prompt('What should this game be named? (required)')
+  let url = prompt("What's this game's url? (required)")
+  let icon = prompt("What's this game's icon? (optional)")
+  let description = prompt("What's this game's description? (optional)")
 
   if (!name || !url) return alert('All required fields must be filled in')
   if (name.length > 15) return alert('Game name is too long (max 30 characters)')
@@ -62,7 +62,7 @@ function loadcustomgame() {
   fetch('https://www.uuidtools.com/api/generate/v4')
     .then((response) => response.json())
     .then((data) => {
-      var customgames = getObj('customgames') || []
+      const customgames = getObj('customgames') || []
       customgames.push(JSON.parse(`{ "title": "${name} (Custom game)", "url": "${url}", "id": "${data[0]}", "image": "${icon}", "description": "${description}" }`))
       console.log(customgames)
       setObj('customgames', customgames)
