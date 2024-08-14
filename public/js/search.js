@@ -12,7 +12,7 @@ input.addEventListener("keyup", function (event) {
 });
 
 const params = new URLSearchParams(window.location.search)
-console.log("Searching for " + params.get("q"))
+console.log("Searching for ${params.get("q")}")
 if (params.get("q")) {
   div.style.display = 'none'
   frame.style.display = 'block'
