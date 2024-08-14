@@ -16,6 +16,7 @@ if (/debug/.test(window.location)) {
 
 const swAllowedHostnames = ['localhost', '127.0.0.1']
 
+// Create a servcice worker to handle requests
 async function registerSW() {
   console.log('Starting registration...')
   if (location.protocol !== 'https:' && !swAllowedHostnames.includes(location.hostname)) throw new Error('Service workers cannot be registered without https.\nhttps://go.sillylittle.tech/contact.html\ntechnical@sillylittle.tech')
@@ -54,6 +55,7 @@ hover.rel = 'stylesheet'
 document.head.appendChild(hover)
 
 window.dataLayer = window.dataLayer || []
+// Analytics
 function gtag() {
   dataLayer.push(arguments)
 }
