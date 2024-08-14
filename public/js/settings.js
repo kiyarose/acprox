@@ -14,7 +14,7 @@ function setTab(name = document.querySelector('#tabname').value, icon = document
 
 }
 
-var tabPresets = {
+let tabPresets = {
     google: {
         name: 'Google',
         icon: 'https://www.google.com/favicon.ico'
@@ -58,10 +58,10 @@ if (localStorage.getItem("panickey")) document.querySelector("#panickey").value 
 if (localStorage.getItem("panicurl")) document.querySelector("#panicurl").value = localStorage.getItem("panicurl")
 
 
-var detecting = false;
+let detecting = false;
 function detectPanic() {
-    var key = document.querySelector("#panickey")
-    var button = document.querySelector("#panickeybtn")
+    const key = document.querySelector("#panickey")
+    const button = document.querySelector("#panickeybtn")
     button.disabled = true
     button.innerHTML = "Press any key..."
 
@@ -81,11 +81,11 @@ function detectPanic() {
 }
 
 function setPanicKey() {
-    var key = document.querySelector("#panickey")
+    const key = document.querySelector("#panickey")
     localStorage.setItem("panickey", key.value)
 }
 
 function setPanicUrl() {
-    var url = document.querySelector("#panicurl")
+    const url = document.querySelector("#panicurl")
     localStorage.setItem("panicurl", url.value)
 }
