@@ -54,5 +54,5 @@ let apps = [
     apps.push(app)
   })
   
-  console.log("Loaded " + apps.length + " apps")
+  console.log(`Loaded ${apps.length} apps`)
   if (customapps) console.log(`Loaded ${customapps.length} custom apps`)
