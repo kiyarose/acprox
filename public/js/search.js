@@ -11,7 +11,7 @@ input.addEventListener("keyup", function (event) {
   }
 });
 
-var params = new URLSearchParams(window.location.search)
+const params = new URLSearchParams(window.location.search)
 console.log("Searching for " + params.get("q"))
 if (params.get("q")) {
   div.style.display = 'none'
