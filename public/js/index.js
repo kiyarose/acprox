@@ -45,7 +45,7 @@ function launchab() {
   window.parent.window.location.replace(localStorage.getItem('panicurl') || 'https://classroom.google.com/h')
 }
 
-if (window.self !== window.self) document.querySelector('#launchab').style.display = 'none'
+if (window.self !== window.top) document.querySelector('#launchab').style.display = 'none'
 
 function loadcustomgame() {
   if (!getObj('customgames')) {
