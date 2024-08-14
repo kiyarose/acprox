@@ -55,4 +55,4 @@ let apps = [
   })
   
   console.log("Loaded " + apps.length + " apps")
-  if (customapps) console.log("Loaded " + customapps.length + " custom apps")
+  if (customapps) console.log(`Loaded ${customapps.length} custom apps`)
