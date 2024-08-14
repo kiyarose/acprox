@@ -1,9 +1,9 @@
 if (!getObj("favoritedApps")) setObj("favoritedApps", [])
 apps.forEach(app => {
-  var card = document.createElement("div")
-  var image = document.createElement("img")
-  var text = document.createElement("h4")
-  var descrip = document.createElement("p")
+  const card = document.createElement("div")
+  const image = document.createElement("img")
+  const text = document.createElement("h4")
+  const descrip = document.createElement("p")
   descrip.classList.add("description")
   card.classList.add("card")
 
