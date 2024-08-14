@@ -18,7 +18,7 @@ if (params.get("q")) {
   frame.style.display = 'block'
   document.querySelector("iframe").src = __uv$config.prefix + __uv$config.encodeUrl(search(params.get("q")));
 }
-
+// Grab the url and mash it into the SW
 function search(input, template) {
   try {
     // input is a valid URL:
