@@ -4,7 +4,7 @@
 
 if (/debug/.test(window.location)) {
   console.log('Debug mode enabled')
-  var eruda = document.createElement('script')
+  let eruda = document.createElement('script')
   eruda.src = 'https://cdn.jsdelivr.net/npm/eruda'
   document.head.append(eruda)
 
