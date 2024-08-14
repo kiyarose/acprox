@@ -65,7 +65,8 @@ function shutdown() {
   console.log("SIGTERM signal received: closing HTTP server");
   server.close();
   bare.close();
-  process.exit(0);
+  Process.exit();
+  const exit = process.exit;
 }
 
 server.listen({
