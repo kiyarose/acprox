@@ -46,6 +46,7 @@ if (favoritedGames.includes(game)) {
   favoritedButton.classList.remove("far");
   favoritedButton.classList.add("fas");
 }
+// Handler for favouriting
 function favorite() {
   if (game) {
     let index = favoritedGames.indexOf(game);
