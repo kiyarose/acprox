@@ -1,10 +1,12 @@
+//set obj local
 const setObj = function (key, obj) {
   localStorage.setItem(key, JSON.stringify(obj))
 }
+//store obj local
 const getObj = function (key) {
   return JSON.parse(localStorage.getItem(key))
 }
-
+//load make cus app
 function loadcustomapp() {
   if (!getObj('customapps')) {
     setObj('customapps', [])
@@ -30,7 +32,7 @@ function loadcustomapp() {
 if (localStorage.getItem('launchblank') && window.self !== window.top) {
   launchab()
 }
-
+//launch in about blank iframe
 function launchab() {
   const tab = window.open('about:blank', '_blank')
   const iframe = tab.document.createElement('iframe')
@@ -46,7 +48,7 @@ function launchab() {
 }
 
 if (window.self !== window.top) document.querySelector('#launchab').style.display = 'none'
-
+//load cus games
 function loadcustomgame() {
   if (!getObj('customgames')) {
     setObj('customgames', [])
@@ -71,17 +73,17 @@ function loadcustomgame() {
       //window.location.href = self.location
     })
 }
-
+//appdebugging
 function debug() {
   console.log(getObj('customapps'))
 }
-
+//Remove all cus apps
 function clearcustomapps() {
   setObj('customapps', [])
   console.log('Removed all custom apps!')
   window.location.reload()
 }
-
+//Remove all cus games
 function clearcustomgames() {
   setObj('customgames', [])
   console.log('Removed all custom games!')
