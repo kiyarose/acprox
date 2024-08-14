@@ -1,7 +1,7 @@
 const params = new URLSearchParams(window.location.search);
 if (params.get("game")) {
   games.forEach(async (game) => {
-    if (game.id != params.get("game"))
+    if (game.id !== params.get("game"))
       return (document.title = `${game.title} | SLA`);
     document.querySelector("#gameImage").src = game.image;
     document.querySelector("#gameTitle").innerHTML = game.title;
@@ -15,7 +15,7 @@ if (params.get("game")) {
   });
 } else if (params.get("app")) {
   apps.forEach((app) => {
-    if (app.id != params.get("app"))
+    if (app.id !== params.get("app"))
       return (document.title = `${app.title} | SLA`);
     document.querySelector("#gameImage").src = app.image;
     document.querySelector("#gameTitle").innerHTML = app.title;
