@@ -1,20 +1,18 @@
-//set obj local
 const setObj = function (key, obj) {
   localStorage.setItem(key, JSON.stringify(obj))
 }
-//store obj local
 const getObj = function (key) {
   return JSON.parse(localStorage.getItem(key))
 }
-//load make cus app
+
 function loadcustomapp() {
   if (!getObj('customapps')) {
     setObj('customapps', [])
   }
-  let name = prompt('What should this app be named? (required)')
-  let url = prompt("What's this app's url? (required)")
-  let icon = prompt("What's this app's icon? (optional)")
-  let description = prompt("What's this app's description? (optional)")
+  const name = prompt('What should this app be named? (required)')
+  const url = prompt("What's this app's url? (required)")
+  const icon = prompt("What's this app's icon? (optional)")
+  const description = prompt("What's this app's description? (optional)")
 
   if (!name || !url) return alert('All required fields must be filled in')
   if (name.length > 15) return alert('App name is too long (max 30 characters)')
@@ -22,7 +20,7 @@ function loadcustomapp() {
   fetch('https://www.uuidtools.com/api/generate/v4')
     .then((response) => response.json())
     .then((data) => {
-      let customapps = getObj('customapps') || []
+      const customapps = getObj('customapps') || []
       customapps.push(JSON.parse(`{ "title": "${name} (Custom app)", "url": "${url}", "id": "${data[0]}", "image": "${icon}", "description": "${description}" }`))
       setObj('customapps', customapps)
       window.location.href = self.location
@@ -32,7 +30,7 @@ function loadcustomapp() {
 if (localStorage.getItem('launchblank') && window.self !== window.top) {
   launchab()
 }
-//launch in about blank iframe
+
 function launchab() {
   const tab = window.open('about:blank', '_blank')
   const iframe = tab.document.createElement('iframe')
@@ -48,15 +46,15 @@ function launchab() {
 }
 
 if (window.self !== window.top) document.querySelector('#launchab').style.display = 'none'
-//load cus games
+
 function loadcustomgame() {
   if (!getObj('customgames')) {
     setObj('customgames', [])
   }
-  let name = prompt('What should this game be named? (required)')
-  let url = prompt("What's this game's url? (required)")
-  let icon = prompt("What's this game's icon? (optional)")
-  let description = prompt("What's this game's description? (optional)")
+  const name = prompt('What should this game be named? (required)')
+  const url = prompt("What's this game's url? (required)")
+  const icon = prompt("What's this game's icon? (optional)")
+  const description = prompt("What's this game's description? (optional)")
 
   if (!name || !url) return alert('All required fields must be filled in')
   if (name.length > 15) return alert('Game name is too long (max 30 characters)')
@@ -73,17 +71,17 @@ function loadcustomgame() {
       //window.location.href = self.location
     })
 }
-//appdebugging
+
 function debug() {
   console.log(getObj('customapps'))
 }
-//Remove all cus apps
+
 function clearcustomapps() {
   setObj('customapps', [])
   console.log('Removed all custom apps!')
   window.location.reload()
 }
-//Remove all cus games
+
 function clearcustomgames() {
   setObj('customgames', [])
   console.log('Removed all custom games!')
