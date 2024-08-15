@@ -1,9 +1,9 @@
-import { createBareServer } from '@tomphttp/bare-server-node';
+import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
+import { createBareServer } from "@tomphttp/bare-server-node";
 import express from "express";
 import { createServer } from "node:http";
-import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
-import { join } from "node:path";
 import { hostname } from "node:os";
+import { join } from "node:path";
 import { fileURLToPath } from "url";
 
 const publicPath = fileURLToPath(new URL("./public/", import.meta.url));
@@ -16,7 +16,7 @@ app.use("/uv/", express.static(uvPath));
 
 // Error for everything else
 app.use((req, res) => {
-  res.status(404); 
+  res.status(404);
   res.sendFile(join(publicPath, "404.html"));
 });
 
@@ -53,14 +53,14 @@ server.on("listening", () => {
   console.log(
     `\thttp://${
       address.family === "IPv6" ? `[${address.address}]` : address.address
-    }:${address.port}`
+    }:${address.port}`,
   );
 });
 
 // https://expressjs.com/en/advanced/healthcheck-graceful-shutdown.html
 process.on("SIGINT", shutdown);
 process.on("SIGTERM", shutdown);
-//Shutdown server
+// SIGTERM server
 function shutdown() {
   console.log("SIGTERM signal received: closing HTTP server");
 
