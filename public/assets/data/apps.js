@@ -1,4 +1,4 @@
-var apps = [
+const apps = [
     {
       'id': 'customapp',
       'title': 'Add custom app',
@@ -49,10 +49,10 @@ var apps = [
     }
   ]
   
-  var customapps = JSON.parse(localStorage.getItem("customapps"))
+  const customapps = JSON.parse(localStorage.getItem("customapps"))
   if (customapps) customapps.forEach(app => {
     apps.push(app)
   })
   
-  console.log("Loaded " + apps.length + " apps")
-  if (customapps) console.log("Loaded " + customapps.length + " custom apps")
+  console.log(`Loaded ${apps.length} apps`)
+  if (customapps) console.log(`Loaded ${customapps.length} custom apps`)

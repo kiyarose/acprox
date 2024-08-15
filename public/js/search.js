@@ -1,24 +1,25 @@
-const frame = document.querySelector("iframe")
-const div = document.querySelector(".center-container")
-frame.style.display = "none"
+const frame = document.querySelector("iframe");
+const div = document.querySelector(".center-container");
+frame.style.display = "none";
 const input = document.querySelector("input");
 input.addEventListener("keyup", function (event) {
   if (event.key === "Enter") {
-    div.style.display = 'none'
-    frame.style.display = 'block'
-    document.querySelector("iframe").src = __uv$config.prefix + __uv$config.encodeUrl(search(input.value));
-
+    div.style.display = "none";
+    frame.style.display = "block";
+    document.querySelector("iframe").src =
+      __uv$config.prefix + __uv$config.encodeUrl(search(input.value));
   }
 });
 
-var params = new URLSearchParams(window.location.search)
-console.log("Searching for " + params.get("q"))
+const params = new URLSearchParams(window.location.search);
+console.log(`Searching for ${params.get("q")}`);
 if (params.get("q")) {
-  div.style.display = 'none'
-  frame.style.display = 'block'
-  document.querySelector("iframe").src = __uv$config.prefix + __uv$config.encodeUrl(search(params.get("q")));
+  div.style.display = "none";
+  frame.style.display = "block";
+  document.querySelector("iframe").src =
+    __uv$config.prefix + __uv$config.encodeUrl(search(params.get("q")));
 }
-
+// Grab the url and mash it into the SW
 function search(input, template) {
   try {
     // input is a valid URL:
@@ -42,5 +43,5 @@ function search(input, template) {
 
   // Attempts to convert the input to a fully qualified URL have failed
   // Treat the input as a search query
-  return `https://www.google.com/search?q=${encodeURIComponent(input)}`
+  return `https://www.google.com/search?q=${encodeURIComponent(input)}`;
 }

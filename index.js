@@ -1,9 +1,9 @@
-import { createBareServer } from '@tomphttp/bare-server-node';
+import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
+import { createBareServer } from "@tomphttp/bare-server-node";
 import express from "express";
 import { createServer } from "node:http";
-import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
-import { join } from "node:path";
 import { hostname } from "node:os";
+import { join } from "node:path";
 import { fileURLToPath } from "url";
 
 const publicPath = fileURLToPath(new URL("./public/", import.meta.url));
@@ -16,7 +16,7 @@ app.use("/uv/", express.static(uvPath));
 
 // Error for everything else
 app.use((req, res) => {
-  res.status(404); 
+  res.status(404);
   res.sendFile(join(publicPath, "404.html"));
 });
 
@@ -53,21 +53,51 @@ server.on("listening", () => {
   console.log(
     `\thttp://${
       address.family === "IPv6" ? `[${address.address}]` : address.address
-    }:${address.port}`
+    }:${address.port}`,
   );
 });
 
 // https://expressjs.com/en/advanced/healthcheck-graceful-shutdown.html
 process.on("SIGINT", shutdown);
 process.on("SIGTERM", shutdown);
-
+// SIGTERM server
 function shutdown() {
   console.log("SIGTERM signal received: closing HTTP server");
-  server.close();
-  bare.close();
-  process.exit(0);
-}
 
+  // Use Promises to handle asynchronous operations
+  Promise.all([
+    new Promise((resolve, reject) => {
+      server.close((err) => {
+        if (err) {
+          console.error("Error closing server:", err);
+          reject(err);
+        } else {
+          console.log("Server closed successfully.");
+          resolve();
+        }
+      });
+    }),
+    new Promise((resolve, reject) => {
+      bare.close((err) => {
+        if (err) {
+          console.error("Error closing bare connection:", err);
+          reject(err);
+        } else {
+          console.log("Bare connection closed successfully.");
+          resolve();
+        }
+      });
+    })
+  ])
+  .then(() => {
+    console.log("All resources closed, exiting process.");
+    process.exit(0);
+  })
+  .catch((err) => {
+    console.error("Error during shutdown:", err);
+    process.exit(1); // Exit with error code if something went wrong
+  });
+}
 server.listen({
   port,
 });
