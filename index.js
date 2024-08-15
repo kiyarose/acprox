@@ -60,15 +60,44 @@ server.on("listening", () => {
 // https://expressjs.com/en/advanced/healthcheck-graceful-shutdown.html
 process.on("SIGINT", shutdown);
 process.on("SIGTERM", shutdown);
-//SIGTERM server
+//Shutdown server
 function shutdown() {
   console.log("SIGTERM signal received: closing HTTP server");
-  server.close();
-  bare.close();
-  Process.exit();
-  const exit = process.exit;
-}
 
+  // Use Promises to handle asynchronous operations
+  Promise.all([
+    new Promise((resolve, reject) => {
+      server.close((err) => {
+        if (err) {
+          console.error("Error closing server:", err);
+          reject(err);
+        } else {
+          console.log("Server closed successfully.");
+          resolve();
+        }
+      });
+    }),
+    new Promise((resolve, reject) => {
+      bare.close((err) => {
+        if (err) {
+          console.error("Error closing bare connection:", err);
+          reject(err);
+        } else {
+          console.log("Bare connection closed successfully.");
+          resolve();
+        }
+      });
+    })
+  ])
+  .then(() => {
+    console.log("All resources closed, exiting process.");
+    process.exit(0);
+  })
+  .catch((err) => {
+    console.error("Error during shutdown:", err);
+    process.exit(1); // Exit with error code if something went wrong
+  });
+}
 server.listen({
   port,
 });
