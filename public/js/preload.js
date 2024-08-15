@@ -3,10 +3,10 @@
 // UV Service Worker
 
 if (/debug/.test(window.location)) {
-  console.log("Debug mode enabled");
-  let eruda = document.createElement("script");
-  eruda.src = "https://cdn.jsdelivr.net/npm/eruda";
-  document.head.append(eruda);
+  console.log('Debug mode enabled');
+  const eruda = document.createElement('script');
+  eruda.src = 'https://cdn.jsdelivr.net/npm/eruda'
+  document.head.append(eruda)
 
   eruda.onload = () => {
     eruda.init();
