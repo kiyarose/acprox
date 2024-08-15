@@ -20,7 +20,7 @@ function setTab(
     document.querySelector("#tabicon").value = localStorage.getItem("tabIcon");
 }
 
-let tabPresets = {
+const tabPresets = {
   google: { name: "Google", icon: "https://www.google.com/favicon.ico" },
   drive: {
     name: "My Drive - Google Drive",
