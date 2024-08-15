@@ -1,23 +1,23 @@
-const frame = document.querySelector("iframe")
-const div = document.querySelector(".center-container")
-frame.style.display = "none"
+const frame = document.querySelector("iframe");
+const div = document.querySelector(".center-container");
+frame.style.display = "none";
 const input = document.querySelector("input");
-input.addEventListener("keyup", function(event) {
+input.addEventListener("keyup", function (event) {
   if (event.key === "Enter") {
-    div.style.display = 'none'
-    frame.style.display = 'block'
+    div.style.display = "none";
+    frame.style.display = "block";
     document.querySelector("iframe").src =
-        __uv$config.prefix + __uv$config.encodeUrl(search(input.value));
+      __uv$config.prefix + __uv$config.encodeUrl(search(input.value));
   }
 });
 
-const params = new URLSearchParams(window.location.search)
-console.log(`Searching for ${params.get("q")}`)
+const params = new URLSearchParams(window.location.search);
+console.log(`Searching for ${params.get("q")}`);
 if (params.get("q")) {
-  div.style.display = 'none'
-  frame.style.display = 'block'
+  div.style.display = "none";
+  frame.style.display = "block";
   document.querySelector("iframe").src =
-      __uv$config.prefix + __uv$config.encodeUrl(search(params.get("q")));
+    __uv$config.prefix + __uv$config.encodeUrl(search(params.get("q")));
 }
 // Grab the url and mash it into the SW
 function search(input, template) {
@@ -34,8 +34,7 @@ function search(input, template) {
     // eg: example.com, https://example.com/test?q=param
     const url = new URL(`http://${input}`);
     // only if the hostname has a TLD/subdomain
-    if (url.hostname.includes("."))
-      return url.toString();
+    if (url.hostname.includes(".")) return url.toString();
   } catch (err) {
     // input was not valid URL
   }
@@ -44,5 +43,5 @@ function search(input, template) {
 
   // Attempts to convert the input to a fully qualified URL have failed
   // Treat the input as a search query
-  return `https://www.google.com/search?q=${encodeURIComponent(input)}`
+  return `https://www.google.com/search?q=${encodeURIComponent(input)}`;
 }

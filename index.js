@@ -1,10 +1,10 @@
-import {uvPath} from "@titaniumnetwork-dev/ultraviolet";
-import {createBareServer} from '@tomphttp/bare-server-node';
+import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
+import { createBareServer } from "@tomphttp/bare-server-node";
 import express from "express";
-import {createServer} from "node:http";
-import {hostname} from "node:os";
-import {join} from "node:path";
-import {fileURLToPath} from "url";
+import { createServer } from "node:http";
+import { hostname } from "node:os";
+import { join } from "node:path";
+import { fileURLToPath } from "url";
 
 const publicPath = fileURLToPath(new URL("./public/", import.meta.url));
 
@@ -40,8 +40,7 @@ server.on("upgrade", (req, socket, head) => {
 
 let port = parseInt(process.env.PORT || "");
 
-if (isNaN(port))
-  port = 3000;
+if (isNaN(port)) port = 3000;
 
 server.on("listening", () => {
   const address = server.address();
@@ -51,9 +50,11 @@ server.on("listening", () => {
   console.log("Listening on:");
   console.log(`\thttp://localhost:${address.port}`);
   console.log(`\thttp://${hostname()}:${address.port}`);
-  console.log(`\thttp://${
-      address.family === "IPv6" ? `[${address.address}]`
-                                : address.address}:${address.port}`);
+  console.log(
+    `\thttp://${
+      address.family === "IPv6" ? `[${address.address}]` : address.address
+    }:${address.port}`,
+  );
 });
 
 // https://expressjs.com/en/advanced/healthcheck-graceful-shutdown.html
