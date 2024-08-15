@@ -1,4 +1,4 @@
-let apps = [
+const apps = [
     {
       'id': 'customapp',
       'title': 'Add custom app',
@@ -49,7 +49,7 @@ let apps = [
     }
   ]
   
-  let customapps = JSON.parse(localStorage.getItem("customapps"))
+  const customapps = JSON.parse(localStorage.getItem("customapps"))
   if (customapps) customapps.forEach(app => {
     apps.push(app)
   })
