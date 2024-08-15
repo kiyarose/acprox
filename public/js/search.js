@@ -2,12 +2,12 @@ const frame = document.querySelector("iframe")
 const div = document.querySelector(".center-container")
 frame.style.display = "none"
 const input = document.querySelector("input");
-input.addEventListener("keyup", function (event) {
+input.addEventListener("keyup", function(event) {
   if (event.key === "Enter") {
     div.style.display = 'none'
     frame.style.display = 'block'
-    document.querySelector("iframe").src = __uv$config.prefix + __uv$config.encodeUrl(search(input.value));
-
+    document.querySelector("iframe").src =
+        __uv$config.prefix + __uv$config.encodeUrl(search(input.value));
   }
 });
 
@@ -16,7 +16,8 @@ console.log(`Searching for ${params.get("q")}`)
 if (params.get("q")) {
   div.style.display = 'none'
   frame.style.display = 'block'
-  document.querySelector("iframe").src = __uv$config.prefix + __uv$config.encodeUrl(search(params.get("q")));
+  document.querySelector("iframe").src =
+      __uv$config.prefix + __uv$config.encodeUrl(search(params.get("q")));
 }
 // Grab the url and mash it into the SW
 function search(input, template) {
@@ -33,7 +34,8 @@ function search(input, template) {
     // eg: example.com, https://example.com/test?q=param
     const url = new URL(`http://${input}`);
     // only if the hostname has a TLD/subdomain
-    if (url.hostname.includes(".")) return url.toString();
+    if (url.hostname.includes("."))
+      return url.toString();
   } catch (err) {
     // input was not valid URL
   }

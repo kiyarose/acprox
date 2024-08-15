@@ -1,12 +1,9 @@
-//set obj local
-const setObj = function (key, obj) {
-  localStorage.setItem(key, JSON.stringify(obj))
-}
-//store obj local
-const getObj = function (key) {
-  return JSON.parse(localStorage.getItem(key))
-}
-//load make cus app
+// set obj local
+const setObj = function(key,
+                        obj) { localStorage.setItem(key, JSON.stringify(obj)) }
+// store obj local
+const getObj = function(key) { return JSON.parse(localStorage.getItem(key)) }
+// load make cus app
 function loadcustomapp() {
   if (!getObj('customapps')) {
     setObj('customapps', [])
@@ -23,8 +20,10 @@ function loadcustomapp() {
     .then((response) => response.json())
     .then((data) => {
       let customapps = getObj('customapps') || []
-      customapps.push(JSON.parse(`{ "title": "${name} (Custom app)", "url": "${url}", "id": "${data[0]}", "image": "${icon}", "description": "${description}" }`))
-      setObj('customapps', customapps)
+  customapps.push(
+      JSON.parse(`{ "title": "${name} (Custom app)", "url": "${url}", "id": "${
+          data[0]}", "image": "${icon}", "description": "${description}" }`))
+  setObj('customapps', customapps)
       window.location.href = self.location
     })
 }
@@ -32,7 +31,7 @@ function loadcustomapp() {
 if (localStorage.getItem('launchblank') && window.self !== window.top) {
   launchab()
 }
-//launch in about blank iframe
+// launch in about blank iframe
 function launchab() {
   const tab = window.open('about:blank', '_blank')
   const iframe = tab.document.createElement('iframe')
@@ -44,46 +43,49 @@ function launchab() {
   stl.left = stl.right = stl.top = stl.bottom = '0'
   iframe.src = self.location
   tab.document.body.appendChild(iframe)
-  window.parent.window.location.replace(localStorage.getItem('panicurl') || 'https://classroom.google.com/h')
+  window.parent.window.location.replace(localStorage.getItem('panicurl') ||
+                                        'https://classroom.google.com/h')
 }
 
-if (window.self !== window.top) document.querySelector('#launchab').style.display = 'none'
-//load cus games
-function loadcustomgame() {
-  if (!getObj('customgames')) {
-    setObj('customgames', [])
-  }
-  let name = prompt('What should this game be named? (required)')
-  let url = prompt("What's this game's url? (required)")
-  let icon = prompt("What's this game's icon? (optional)")
-  let description = prompt("What's this game's description? (optional)")
+if (window.self !== window.top)
+  document.querySelector('#launchab').style.display = 'none'
+  // load cus games
+  function loadcustomgame() {
+    if (!getObj('customgames')) {
+      setObj('customgames', [])
+    }
+    let name = prompt('What should this game be named? (required)')
+    let url = prompt("What's this game's url? (required)")
+    let icon = prompt("What's this game's icon? (optional)")
+    let description = prompt("What's this game's description? (optional)")
 
-  if (!name || !url) return alert('All required fields must be filled in')
-  if (name.length > 15) return alert('Game name is too long (max 30 characters)')
+    if (!name || !url) return alert('All required fields must be filled in')
+    if (name.length >
+        15) return alert('Game name is too long (max 30 characters)')
 
   fetch('https://www.uuidtools.com/api/generate/v4')
     .then((response) => response.json())
     .then((data) => {
       const customgames = getObj('customgames') || []
-      customgames.push(JSON.parse(`{ "title": "${name} (Custom game)", "url": "${url}", "id": "${data[0]}", "image": "${icon}", "description": "${description}" }`))
-      console.log(customgames)
-      setObj('customgames', customgames)
+  customgames.push(
+      JSON.parse(`{ "title": "${name} (Custom game)", "url": "${url}", "id": "${
+          data[0]}", "image": "${icon}", "description": "${description}" }`))
+  console.log(customgames)
+  setObj('customgames', customgames)
 
       console.log(getObj('customgames'))
       //window.location.href = self.location
     })
-}
-//appdebugging
-function debug() {
-  console.log(getObj('customapps'))
-}
-//Remove all cus apps
+  }
+// appdebugging
+function debug() { console.log(getObj('customapps')) }
+// Remove all cus apps
 function clearcustomapps() {
   setObj('customapps', [])
   console.log('Removed all custom apps!')
   window.location.reload()
 }
-//Remove all cus games
+// Remove all cus games
 function clearcustomgames() {
   setObj('customgames', [])
   console.log('Removed all custom games!')
@@ -99,7 +101,8 @@ if (localStorage.getItem('theme')) {
 
 // Tab
 if (localStorage.getItem('tabIcon')) {
-  document.querySelector("link[rel='shortcut icon']").href = localStorage.getItem('tabIcon')
+  document.querySelector("link[rel='shortcut icon']").href =
+      localStorage.getItem('tabIcon')
 }
 
 if (localStorage.getItem('tabName')) {
@@ -112,8 +115,13 @@ if (localStorage.getItem('theme')) {
 console.log(localStorage.getItem('theme'))
 
 // Panic
-document.addEventListener('keydown', async (e) => {
-  if (localStorage.getItem('panickey') && localStorage.getItem('panickey') === e.key) window.parent.window.location.replace(localStorage.getItem('panicurl') || 'https://classroom.google.com/h')
-})
+document.addEventListener('keydown',
+                          async (e) => {
+                            if (localStorage.getItem('panickey') &&
+                                localStorage.getItem('panickey') === e.key)
+                              window.parent.window.location.replace(
+                                  localStorage.getItem('panicurl') ||
+                                  'https://classroom.google.com/h')
+                          })
 
-// Debug
+    // Debug

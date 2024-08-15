@@ -1,4 +1,5 @@
-if (!getObj("favoritedGames")) setObj("favoritedGames", [])
+if (!getObj("favoritedGames"))
+  setObj("favoritedGames", [])
 games.forEach(game => {
   const card = document.createElement("div")
   const image = document.createElement("img")
@@ -8,7 +9,8 @@ games.forEach(game => {
   card.classList.add("card")
 
   if (game.image) image.src = game.image
-  if (!game.image) image.src = "https://www.pngkey.com/png/full/167-1670247_white-globe-icon-png-holy-bible-new-international.png"
+  if (!game.image) image.src =
+      "https://www.pngkey.com/png/full/167-1670247_white-globe-icon-png-holy-bible-new-international.png"
   if (game.description) descrip.innerHTML = game.description
   image.loading = "lazy"
   text.innerHTML = game.title
@@ -17,14 +19,13 @@ games.forEach(game => {
   // document.querySelector("#gamecards").appendChild(card)
   if (getObj("favoritedGames").includes(game.id)) {
     document.querySelector("#favoritedgames").appendChild(card)
-  } else {
-    document.querySelector("#gamecards").appendChild(card)
   }
+  else {document.querySelector("#gamecards").appendChild(card)}
 
   card.classList.add("hvr-bob")
   card.addEventListener("click", () => {
-
-    if (game.id === "customgame") return loadcustomgame()
-    window.location.href = `/load.html?game=${game.id}`
+    if (game.id === "customgame")
+      return loadcustomgame()
+      window.location.href = `/load.html?game=${game.id}`
   })
 })
