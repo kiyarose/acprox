@@ -9,8 +9,7 @@ updates:
     commit-message:
       prefix: "security(deps)"  # Customize prefix for security-related updates
     reviewers:
-      - "dswan36"
-      - "SillyLittleCommits"
+      - "kiyarose"
 
   # Maintain dependencies for GitHub Actions (if applicable)
   - package-ecosystem: github-actions  # Keep if you use GitHub Actions workflows
@@ -21,5 +20,4 @@ updates:
     commit-message:
       prefix: "ci(deps)"
     reviewers:
-      - "dswan36"
-      - "SillyLittleCommits"
+      - "kiyarose"
