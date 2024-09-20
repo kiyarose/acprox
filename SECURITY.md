@@ -9,6 +9,6 @@ ACPROX uses [UltraViolet](https://github.com/titaniumnetwork-dev/Ultraviolet) an
 However, if you believe the issue is on our side and should be reported here, you have two options. <br><br>
 
 > If the issue is non sensitive. A [normal bug request](https://github.com/kiyarose/SillyLittleFiles/issues/new/choose) can be filed. <br><br>
-> If the issue is sensitive email either
+> If the issue is sensitive email
 
 - technology@sillylittle \[dot] tech
