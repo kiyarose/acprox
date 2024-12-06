@@ -14,7 +14,7 @@
   "dependencies": {
     "@titaniumnetwork-dev/ultraviolet": "^2.0.0",
     "@tomphttp/bare-server-node": "^2.0.3",
-    "express": "^4.21.1"
+    "express": "^4.21.2"
   },
   "devDependencies": {
     "eslint": "^9.16.0",
